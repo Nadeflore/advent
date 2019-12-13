@@ -3,7 +3,7 @@ import itertools
 
 class CPU:
 
-    def __init__(self,  intcode):
+    def __init__(self, intcode):
         self.memory = intcode.copy()
         self.pc = 0
         self.inputs = []

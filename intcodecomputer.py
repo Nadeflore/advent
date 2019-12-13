@@ -78,10 +78,14 @@ class IntcodeComputer:
     def execute(self, inputs):
         self.inputs.extend(inputs)
 
-        while not self.terminated:
-            self.execute_one_instruction()
+        try:
+            while not self.terminated:
+                    self.execute_one_instruction()
+        except IndexError:
+            pass
 
         outputs = self.outputs
+        self.outputs = []
         return outputs
 
     def get_parameter(self, param, mode):
