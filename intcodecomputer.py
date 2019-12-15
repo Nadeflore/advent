@@ -140,3 +140,15 @@ class IntcodeComputer:
             instruction_length += 1
 
         self.pc += instruction_length
+
+    def savestate(self):
+        return {
+            "memory": self.memory.copy(),
+            "pc": self.pc,
+            "relativebase": self.relativebase
+        }
+
+    def loadstate(self, state):
+        self.memory = state["memory"].copy()
+        self.pc = state["pc"]
+        self.relativebase = state["relativebase"]
